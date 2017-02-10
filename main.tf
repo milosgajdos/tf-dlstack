@@ -16,10 +16,9 @@ resource "aws_instance" "dl" {
   subnet_id                   = "${module.vpc.public_subnet_id}"
   associate_public_ip_address = true
 
-  ebs_block_device {
+  root_block_device {
     volume_type = "gp2"
     volume_size = "128"
-    device_name = "/dev/sda1"
   }
 
   vpc_security_group_ids = [
